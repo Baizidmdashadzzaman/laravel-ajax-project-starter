@@ -1,6 +1,6 @@
 # Project Starter Laravel and Ajax with user permission  
 
-This is a simple project starter build using laravel ,ajax and as an template used Admin lte 3.
+This is a simple project starter build using laravel 8 ,ajax and as an template used Admin lte 3.
 
 ### How Install
 
