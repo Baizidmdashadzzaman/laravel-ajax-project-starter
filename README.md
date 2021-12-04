@@ -6,7 +6,7 @@ This is a simple project starter build using laravel 8 ,ajax and as an template 
 
 You can simply run the project by following process
 ```shell
-$ git clone https://github.com/Baizidmdashadzzaman/laravel-ajax-project-starter
+$ git clone ######################
 ```
 ```shell
 $ cd laravel-ajax-project-starter
@@ -30,17 +30,23 @@ $ import data base from sql/laravel_starter.sql in ypur php myadmin
 $ php artisan serve
 ```
 
-after that you can login to your admin panel by visiting http://127.0.0.1:8000/login
-enter the email and password
+Multi guard auth:
 
-Email:
+For admin login visit
 ```shell
-admin@admin.com
+url/admin-login
 ```
-Password:
+
+For customer login visit
 ```shell
-admin@admin.com
+url/customer-login
 ```
+
+For user unader customer login visit
+```shell
+url/customerusers-login
+```
+
 Screenshot:
 ![image](1.PNG?raw=true "image")
 
@@ -63,7 +69,7 @@ so the user_permission field in user table should have 1,2 value.if you have onl
 user_permission field will be 2 .
 ![image](7.PNG?raw=true "image")
 
-### <a href="http://baizidmdashadzzaman.com/">LIVE DEMO</a>
+### <a href="#">LIVE DEMO</a>
 
 
 

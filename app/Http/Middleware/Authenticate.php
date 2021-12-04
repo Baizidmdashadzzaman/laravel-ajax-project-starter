@@ -14,8 +14,16 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
+        /*
         if (! $request->expectsJson()) {
             return route('login');
+        }
+        */
+        if ($request->is('admin-dashboard') || $request->is('admin-dashboard/*')) {
+            return redirect()->route('admin.login')->with('error_message', 'Please login first to continue this operation');
+        }
+        if ($request->is('customer-dashboard') || $request->is('customer-dashboard/*')) {
+            return redirect()->route('customer.login')->with('error_message', 'Please login first to continue this operation');
         }
     }
 }

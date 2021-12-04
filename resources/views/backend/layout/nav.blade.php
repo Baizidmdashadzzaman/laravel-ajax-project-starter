@@ -50,6 +50,16 @@
           </p>
         </a>
       </li>
+     
+      <li class="nav-item">
+        <a href="javascript:void(0)" data-toggle="modal" data-target="#changepassword" class="nav-link">
+          <i class="nav-icon fas fa-user"></i>
+          <p>
+            Change Password
+          </p>
+        </a>
+      </li>
+
       <li class="nav-item">
         <a href="{{route('admin.logout')}}" class="nav-link">
           <i class="nav-icon fas fa-power-off"></i>
@@ -62,3 +72,4 @@
 
     </ul>
   </nav>
+

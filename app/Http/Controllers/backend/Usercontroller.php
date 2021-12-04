@@ -198,7 +198,16 @@ class Usercontroller extends Controller
 	
 	public function login()
 	{
-		return view('backend.auth.login');
+        if(Auth::guard('web')->user() == null)
+        {
+            return view('backend.auth.login');
+            
+        }
+        else
+        {
+            return redirect()->route('admin.dashboard')->with('success_message', 'You are already loged In');
+        }
+		
 	}
 	
 	
@@ -213,7 +222,7 @@ class Usercontroller extends Controller
             Auth::user()->save();
             return redirect()->route('admin.dashboard')->with('success_message', 'You are success fully loged In');
         } else {
-            return redirect()->route('login')->with('error_message', 'Invalid Username or Password');
+            return redirect()->route('admin.login')->with('error_message', 'Invalid Username or Password');
         }
         
     }
@@ -252,7 +261,7 @@ class Usercontroller extends Controller
     {
         Auth::logout();
         Session::flash('success_message', 'Successfully Loged Out');
-        return redirect()->route('login');
+        return redirect()->route('admin.login');
 
     }
 

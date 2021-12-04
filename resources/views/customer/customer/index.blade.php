@@ -1,6 +1,6 @@
-@extends('backend.layout.layout')
+@extends('customer.layout.layout')
 @section('title')
-    Customer
+    Customer User
 @endsection
 @section('css')
 
@@ -19,7 +19,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Customer list</li>
+              <li class="breadcrumb-item active">Customer user list</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -74,8 +74,8 @@
                       @foreach($allData as $singleData)
                       <tr id="table_id_{{ $singleData->id }}" >
                         <td>{{$singleData->id}}</td>
-                        <td>{{$singleData->customer_name}}</td>
-                        <td>{{$singleData->customer_phone}}</td>
+                        <td>{{$singleData->customer_users_name}}</td>
+                        <td>{{$singleData->customer_users_phone}}</td>
                         <td><div class="btn-group">
                             <a href="javascript:void(0)" id="edit-user" data-id="{{ $singleData->id }}" class="btn btn-primary" >
                                 Edit
@@ -114,30 +114,30 @@
             <div class="modal-body">
                 <input type="hidden" name="data_id" id="data_id">
                 
-                <label>Customer Name: </label>
+                <label>Customer User Name: </label>
                 <div class="form-group">
                     <input type="text" placeholder="Enter Customer Name" class="form-control"
-                     id="customer_name" name="customer_name" required >
+                     id="customer_users_name" name="customer_users_name" required >
                 </div>
-                <label>Customer Password: </label>
+                <label>Customer User Password: </label>
                 <div class="form-group">
                     <input type="text" placeholder="Enter Customer Password" class="form-control"
                      id="password" name="password" required >
                 </div>
-                <label>Customer Phone: </label>
+                <label>Customer User Phone: </label>
                 <div class="form-group">
                     <input type="text" placeholder="Enter Customer Phone" class="form-control"
-                     id="customer_phone" name="customer_phone" required >
+                     id="customer_users_phone" name="customer_users_phone" required >
                 </div>
-                <label>Customer Address: </label>
+                <label>Customer User Address: </label>
                 <div class="form-group">
                     <input type="text" placeholder="Enter Customer Address" class="form-control"
-                     id="customer_address" name="customer_address" required >
+                     id="customer_users_address" name="customer_users_address" required >
                 </div>
-                <label>Customer Status: </label>
+                <label>Customer User Status: </label>
                 <div class="form-group">
                   <select class="form-control"
-                  id="customer_status" name="customer_status" required >
+                  id="customer_users_status" name="customer_users_status" required >
                     <option value="0" >Inactive</option>
                     <option value="1" >Active</option>
                   </select>
@@ -184,26 +184,26 @@
         $('#btn-save').val("create-user");
         $('#data_id').val("");
         $('#dataForm').trigger("reset");
-        $('#exampleModalScrollableTitle').html("Add New Customer");
+        $('#exampleModalScrollableTitle').html("Add New Customer User");
         $('#btn-save').html("Save");
         $('#exampleModalScrollable').modal('show');
         $('#password').attr('required', true);
-        $('#customer_status').val(1);
+        $('#customer_users_status').val(1);
     });
   
    /* When click edit user */
     $('body').on('click', '#edit-user', function () {
       var data_id = $(this).data('id');
-          $.get('/admin-dashboard/customer-edit/'+ data_id , function (data) {
-          $('#exampleModalScrollableTitle').html("Edit Customer Information");
+          $.get('/customer-dashboard/customersuser-edit/'+ data_id , function (data) {
+          $('#exampleModalScrollableTitle').html("Edit Customer User Information");
           $('#btn-save').html("Update");
           $('#btn-save').val("edit-user");
           $('#exampleModalScrollable').modal('show');
           $('#data_id').val(data.id);
-          $('#customer_name').val(data.customer_name);
-          $('#customer_phone').val(data.customer_phone);
-          $('#customer_address').val(data.customer_address);
-          $('#customer_status').val(data.customer_status);
+          $('#customer_users_name').val(data.customer_users_name);
+          $('#customer_users_phone').val(data.customer_users_phone);
+          $('#customer_users_address').val(data.customer_users_address);
+          $('#customer_users_status').val(data.customer_users_status);
           $('#password').attr('required', false);
           
          
@@ -236,7 +236,7 @@
      
         $.ajax({
             type: "DELETE",
-            url: "{{ url('/admin-dashboard/customer-delete')}}"+'/'+data_id,
+            url: "{{ url('/customer-dashboard/customersuser-delete')}}"+'/'+data_id,
             success: function (data) {
                 $("#table_id_" + data_id).remove();
 
@@ -290,10 +290,10 @@
                var id  = $('#table_id_').val();
                if(id){
                    var method = 'update';
-                   var url    = "{{route('admin.customer.store')}}";
+                   var url    = "{{route('customer.customersuser.store')}}";
                }else{
                    var method = 'add';
-                   var url    = "{{route('admin.customer.store')}}";
+                   var url    = "{{route('customer.customersuser.store')}}";
                }
 
                $.ajaxSetup({
@@ -319,8 +319,8 @@
         var datavalue = '<tr id="table_id_' 
         + data.id + '"><td >' 
         + data.id + '</td><td>' 
-        + data.customer_name + '</td><td>' 
-        + data.customer_phone + '</td>';
+        + data.customer_users_name + '</td><td>' 
+        + data.customer_users_phone + '</td>';
         
         datavalue += '<td><div class="btn-group" role="group" aria-label="Basic example">';
         
@@ -383,7 +383,7 @@ Swal.fire({
        var query = $(this).val();
        var _token = $('input[name="_token"]').val();
         $.ajax({
-         url:"{{ route('admin.customer.search') }}",
+         url:"{{ route('customer.customersuser.search') }}",
          method:"POST",
          data:{query:query, _token:_token},
          success:function(data){

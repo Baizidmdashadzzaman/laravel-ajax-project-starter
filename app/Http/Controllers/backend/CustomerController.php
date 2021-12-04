@@ -40,6 +40,8 @@ class CustomerController extends Controller
         $data ->customer_name = $request->customer_name;
         $data ->customer_phone = $request->customer_phone;
         $data ->customer_address = $request->customer_address;
+        $data ->customer_status = $request->customer_status;
+        $data ->password =  bcrypt($request->password);
         $save = $data->save();
 
 		}
@@ -49,6 +51,11 @@ class CustomerController extends Controller
         $data ->customer_name = $request->customer_name;
         $data ->customer_phone = $request->customer_phone;
         $data ->customer_address = $request->customer_address;
+        $data ->customer_status = $request->customer_status;
+        if($request->password != null)
+        {
+            $data ->password =  bcrypt($request->password);
+        }
         $save = $data->update();
         
 		}

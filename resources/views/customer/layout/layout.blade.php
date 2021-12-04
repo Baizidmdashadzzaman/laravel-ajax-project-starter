@@ -55,7 +55,7 @@ $setting=App\Models\Setting::first();
         <a href="/" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{route('admin.logout')}}" class="nav-link">logout</a>
+        <a href="{{route('customer.logout')}}" class="nav-link">logout</a>
       </li>
     </ul>
 
@@ -203,7 +203,7 @@ $setting=App\Models\Setting::first();
           class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{auth()->user()->name}}</a>
+          <a href="#" class="d-block">{{auth()->guard('customer')->user()->customer_name}}</a>
         </div>
       </div>
 
@@ -220,7 +220,7 @@ $setting=App\Models\Setting::first();
       </div>
 
       <!-- Sidebar Menu -->
-      @include('backend.layout.nav')
+      @include('customer.layout.nav')
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
@@ -241,7 +241,7 @@ $setting=App\Models\Setting::first();
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <form action="{{route('admin.changepassword')}}" method="post">
+          <form action="{{route('customer.changepassword')}}" method="post">
             @csrf
           <div class="modal-body">
             <p>
@@ -269,6 +269,7 @@ $setting=App\Models\Setting::first();
       </div>
       <!-- /.modal-dialog -->
     </div>
+
 
   </div>
   <!-- /.content-wrapper -->

@@ -14,7 +14,7 @@ $setting=App\Models\Setting::first();
         
       </div>
       <div class="card-body">
-        <h5 class="login-box-msg"><b>ADMIN LOGIN</b></h5>
+        <h5 class="login-box-msg"><b>CUSTOMER LOGIN</b></h5>
         <hr>
         <p class="login-box-msg">Sign in to start your session</p>
         
@@ -33,10 +33,10 @@ $setting=App\Models\Setting::first();
             </div>
             @endif
           
-        <form action="{{route('admin.login.try')}}" method="post">
+        <form action="{{route('customer.login.try')}}" method="post">
             @csrf
           <div class="input-group mb-3">
-            <input type="email" name="email" class="form-control" placeholder="Email" required> 
+            <input type="text" name="customer_phone" class="form-control" placeholder="Phone" required> 
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
