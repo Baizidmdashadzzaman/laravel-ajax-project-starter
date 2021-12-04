@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\user;
+namespace App\Http\Controllers\customerusers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -19,14 +19,14 @@ class UserCustomerController extends Controller
 	
     public function dashboard()
 	{
-		return view('user.dashboard.dashboard');
+		return view('customerusers.dashboard.dashboard');
 	}	
 
      public function login()
 	{
         if(Auth::guard('customeruser')->user() == null)
         {
-            return view('user.auth.login');
+            return view('customerusers.auth.login');
             
         }
         else
@@ -56,7 +56,7 @@ class UserCustomerController extends Controller
 	
     public function change_password()
 	{
-		return view('user.user.auth.changepassword');
+		return view('customerusers.user.auth.changepassword');
 	}
 	
 	public function change_password_try(Request $request)

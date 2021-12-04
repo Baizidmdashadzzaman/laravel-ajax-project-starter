@@ -203,7 +203,7 @@ $setting=App\Models\Setting::first();
           class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{auth()->guard('customer')->user()->customer_name}}</a>
+          <a href="#" class="d-block">{{auth()->guard('customeruser')->user()->customer_users_name}}</a>
         </div>
       </div>
 
@@ -220,7 +220,7 @@ $setting=App\Models\Setting::first();
       </div>
 
       <!-- Sidebar Menu -->
-      @include('user.layout.nav')
+      @include('customerusers.layout.nav')
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->

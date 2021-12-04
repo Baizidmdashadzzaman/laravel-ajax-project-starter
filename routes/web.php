@@ -7,10 +7,10 @@ use App\Http\Controllers\backend\CustomerController;
 use App\Http\Controllers\backend\SettingController;
 
 
-use App\Http\Controllers\customer\CustomeruserController;
-use App\Http\Controllers\customer\CustomersUserController;
+use App\Http\Controllers\users\CustomeruserController;
+use App\Http\Controllers\users\CustomersUserController;
 
-use App\Http\Controllers\user\UserCustomerController;
+use App\Http\Controllers\customerusers\UserCustomerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,7 +37,7 @@ Route::group(['middleware' => 'auth:web'], function () {
            Route::get('/admin-dashboard/changepassword', [UserController::class, 'change_password'])->name('admin.changepassword');
            Route::post('/admin-dashboard/changepassword', [UserController::class, 'change_password_try'])->name('admin.changepassword');
            
-           Route::get('/admin-dashboard/user-list', [UserController::class, 'index'])->name('admin.user.list');
+           Route::get('/admin-dashboard/admin-list', [UserController::class, 'index'])->name('admin.user.list');
            Route::get('/admin-dashboard/user-create', [UserController::class, 'user_create'])->name('admin.user.create');
            Route::post('/admin-dashboard/user-store', [UserController::class, 'store'])->name('admin.user.store');
            Route::get('/admin-dashboard/user-edit/{id}', [UserController::class, 'edit'])->name('admin.user.edit');
@@ -45,7 +45,7 @@ Route::group(['middleware' => 'auth:web'], function () {
            Route::post('/admin-dashboard/user-update/{id}', [UserController::class, 'update'])->name('admin.user.update');
            Route::delete('/admin-dashboard/user-delete/{id}', [UserController::class, 'destroy'])->name('admin.user.delete');
            Route::post('/admin-dashboard/user-search', [UserController::class, 'user_search'])->name('admin.user.search'); 
-           Route::get('/admin-dashboard/user-addpermission/{id}', [UserController::class, 'user_addpermission'])->name('admin.user.addpermission');
+           Route::get('/admin-dashboard/admin-addpermission/{id}', [UserController::class, 'user_addpermission'])->name('admin.user.addpermission');
            Route::post('/admin-dashboard/user-savepermissin', [UserController::class, 'user_savepermissin'])->name('admin.user.savepermissin');	   
          //USER ROUTE
          
@@ -68,7 +68,7 @@ Route::group(['middleware' => 'auth:web'], function () {
          //CATEGORY ROUTE
 
          //CUSTOMER ROUTE
-           Route::get('/admin-dashboard/customer-list', [CustomerController::class, 'index'])->name('admin.customer.list');
+           Route::get('/admin-dashboard/users-list', [CustomerController::class, 'index'])->name('admin.customer.list');
            Route::get('/admin-dashboard/customer-create', [CustomerController::class, 'create'])->name('admin.customer.create');
            Route::post('/admin-dashboard/customer-store', [CustomerController::class, 'store'])->name('admin.customer.store');
            Route::get('/admin-dashboard/customer-edit/{id}', [CustomerController::class, 'edit'])->name('admin.customer.edit');
@@ -88,19 +88,19 @@ Route::group(['middleware' => 'auth:web'], function () {
 //Auth::routes();
 
 
-Route::get('/customer-login', [CustomeruserController::class, 'login'])->name('customer.login');
+Route::get('/users-login', [CustomeruserController::class, 'login'])->name('customer.login');
 Route::post('/customer-login-try', [CustomeruserController::class, 'try_login'])->name('customer.login.try');
 //ADMIN PROTECTED ROUTE START
 Route::group(['middleware' => 'auth:customer'], function () {
     
          //USER ROUTE
-           Route::get('/customer-dashboard', [CustomeruserController::class, 'dashboard'])->name('customer.dashboard');
-           Route::get('/customer-dashboard/customer-logout', [CustomeruserController::class, 'logout'])->name('customer.logout');
+           Route::get('/users-dashboard', [CustomeruserController::class, 'dashboard'])->name('customer.dashboard');
+           Route::get('/users-dashboard/users-logout', [CustomeruserController::class, 'logout'])->name('customer.logout');
            Route::get('/customer-dashboard/changepassword', [CustomeruserController::class, 'change_password'])->name('customer.changepassword');
            Route::post('/customer-dashboard/changepassword', [CustomeruserController::class, 'change_password_try'])->name('customer.changepassword');
 
            //CUSTOMER ROUTE
-           Route::get('/customer-dashboard/customersuser-list', [CustomersUserController::class, 'index'])->name('customer.customersuser.list');
+           Route::get('/users-dashboard/customersuser-list', [CustomersUserController::class, 'index'])->name('customer.customersuser.list');
            Route::get('/customer-dashboard/customersuser-create', [CustomersUserController::class, 'create'])->name('customer.customersuser.create');
            Route::post('/customer-dashboard/customersuser-store', [CustomersUserController::class, 'store'])->name('customer.customersuser.store');
            Route::get('/customer-dashboard/customersuser-edit/{id}', [CustomersUserController::class, 'edit'])->name('customer.customersuser.edit');

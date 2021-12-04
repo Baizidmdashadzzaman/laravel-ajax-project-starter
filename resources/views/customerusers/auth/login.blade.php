@@ -1,4 +1,4 @@
-@extends('backend.auth.layout')
+@extends('customerusers.auth.layout')
 @section('title')
     Login
 @endsection

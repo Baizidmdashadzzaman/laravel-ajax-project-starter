@@ -1,6 +1,6 @@
 @extends('backend.layout.layout')
 @section('title')
-    Customer
+    Users
 @endsection
 @section('css')
 
@@ -14,12 +14,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Customer</h1>
+            <h1 class="m-0">Users</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Customer list</li>
+              <li class="breadcrumb-item active">Users list</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -39,7 +39,7 @@
                 
                 <div class="card-header">
                   
-                  <h3 class="card-title">Customer list</h3>
+                  <h3 class="card-title">Users list</h3>
                   
                   <div class="card-tools">
                     <div class="input-group input-group-sm" style="width: 150px;">
@@ -53,7 +53,7 @@
                     </div>
                     <br>
                     <a href="javascript:void(0)" id="create-new-user" class="btn btn-md bg-gradient-primary" 
-                    style="float:right">Add customer</a>
+                    style="float:right">Add Users</a>
                   </div>
                   
                 </div>
@@ -114,27 +114,27 @@
             <div class="modal-body">
                 <input type="hidden" name="data_id" id="data_id">
                 
-                <label>Customer Name: </label>
+                <label>User Name: </label>
                 <div class="form-group">
                     <input type="text" placeholder="Enter Customer Name" class="form-control"
                      id="customer_name" name="customer_name" required >
                 </div>
-                <label>Customer Password: </label>
+                <label>User Password: </label>
                 <div class="form-group">
                     <input type="text" placeholder="Enter Customer Password" class="form-control"
                      id="password" name="password" required >
                 </div>
-                <label>Customer Phone: </label>
+                <label>User Phone: </label>
                 <div class="form-group">
                     <input type="text" placeholder="Enter Customer Phone" class="form-control"
                      id="customer_phone" name="customer_phone" required >
                 </div>
-                <label>Customer Address: </label>
+                <label>User Address: </label>
                 <div class="form-group">
                     <input type="text" placeholder="Enter Customer Address" class="form-control"
                      id="customer_address" name="customer_address" required >
                 </div>
-                <label>Customer Status: </label>
+                <label>User Status: </label>
                 <div class="form-group">
                   <select class="form-control"
                   id="customer_status" name="customer_status" required >
@@ -184,7 +184,7 @@
         $('#btn-save').val("create-user");
         $('#data_id').val("");
         $('#dataForm').trigger("reset");
-        $('#exampleModalScrollableTitle').html("Add New Customer");
+        $('#exampleModalScrollableTitle').html("Add New User");
         $('#btn-save').html("Save");
         $('#exampleModalScrollable').modal('show');
         $('#password').attr('required', true);
@@ -195,7 +195,7 @@
     $('body').on('click', '#edit-user', function () {
       var data_id = $(this).data('id');
           $.get('/admin-dashboard/customer-edit/'+ data_id , function (data) {
-          $('#exampleModalScrollableTitle').html("Edit Customer Information");
+          $('#exampleModalScrollableTitle').html("Edit User Information");
           $('#btn-save').html("Update");
           $('#btn-save').val("edit-user");
           $('#exampleModalScrollable').modal('show');

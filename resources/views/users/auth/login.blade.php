@@ -1,4 +1,4 @@
-@extends('backend.auth.layout')
+@extends('users.auth.layout')
 @section('title')
     Login
 @endsection
@@ -14,7 +14,7 @@ $setting=App\Models\Setting::first();
         
       </div>
       <div class="card-body">
-        <h5 class="login-box-msg"><b>CUSTOMER LOGIN</b></h5>
+        <h5 class="login-box-msg"><b>USERS LOGIN</b></h5>
         <hr>
         <p class="login-box-msg">Sign in to start your session</p>
         

@@ -16,7 +16,7 @@
             <a href="{{route('customer.customersuser.list')}}" class="nav-link {{ Request::is('customer-dashboard/customersuser-list') ? 'active' : '' }} ">
               <i class="nav-icon fas fa-users"></i>
               <p>
-                Customers user
+                Customers
               </p>
             </a>
           </li>

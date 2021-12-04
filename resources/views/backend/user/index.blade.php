@@ -1,6 +1,6 @@
 @extends('backend.layout.layout')
 @section('title')
-    User
+    Admin
 @endsection
 @section('css')
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>   
@@ -14,12 +14,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">User</h1>
+            <h1 class="m-0">Admin</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">User list</li>
+              <li class="breadcrumb-item active">Admin list</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -39,7 +39,7 @@
                 
                 <div class="card-header">
                   
-                  <h3 class="card-title">User list</h3>
+                  <h3 class="card-title">Admin list</h3>
                   
                   <div class="card-tools">
                     <div class="input-group input-group-sm" style="width: 150px;">
@@ -53,7 +53,7 @@
                     </div>
                     <br>
                     <a href="javascript:void(0)" id="create-new-user" class="btn btn-md bg-gradient-primary" 
-                    style="float:right">Add user</a>
+                    style="float:right">Add admin</a>
                   </div>
                   
                 </div>
@@ -183,7 +183,7 @@
         $('#btn-save').val("create-user");
         $('#data_id').val("");
         $('#dataForm').trigger("reset");
-        $('#exampleModalScrollableTitle').html("Add New System User");
+        $('#exampleModalScrollableTitle').html("Add New Admin User");
         $('#btn-save').html("Save");
         $('#exampleModalScrollable').modal('show');
         $('#password').attr('required', true);
@@ -198,7 +198,7 @@
     $('body').on('click', '#edit-user', function () {
       var data_id = $(this).data('id');
           $.get('/admin-dashboard/user-edit/'+ data_id , function (data) {
-          $('#exampleModalScrollableTitle').html("Edit System User");
+          $('#exampleModalScrollableTitle').html("Edit Admin User");
           $('#btn-save').html("Update");
           $('#btn-save').val("edit-user");
           $('#exampleModalScrollable').modal('show');
@@ -363,7 +363,7 @@ else{
         datavalue += ' <a href="javascript:void(0)" id="edit-user" data-id="' 
         + data.id + '" class="btn btn-primary waves-effect waves-float waves-light">Edit</a>';
         
-        datavalue += ' <a href="/admin-dashboard/user-addpermission/' 
+        datavalue += ' <a href="/admin-dashboard/admin-addpermission/' 
         + data.id + '" class="btn btn-warning waves-effect waves-float waves-light">Permission</a>';
         
               datavalue += '<a href="javascript:void(0)" id="delete-user" data-id="' 

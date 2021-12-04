@@ -220,7 +220,7 @@ $setting=App\Models\Setting::first();
       </div>
 
       <!-- Sidebar Menu -->
-      @include('customer.layout.nav')
+      @include('users.layout.nav')
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->

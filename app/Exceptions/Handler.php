@@ -48,7 +48,7 @@ class Handler extends ExceptionHandler
         if ($request->is('admin-dashboard') || $request->is('admin-dashboard/*')) {
             return redirect()->route('admin.login')->with('error_message', 'Please login first to continue this operation');
         }
-        if ($request->is('customer-dashboard') || $request->is('customer-dashboard/*')) {
+        if ($request->is('users-dashboard') || $request->is('users-dashboard/*')) {
             return redirect()->route('customer.login')->with('error_message', 'Please login first to continue this operation');
         }
         if ($request->is('customerusers-dashboard') || $request->is('customerusers-dashboard/*')) {

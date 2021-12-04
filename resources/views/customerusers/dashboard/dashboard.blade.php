@@ -1,4 +1,4 @@
-@extends('customer.layout.layout')
+@extends('customerusers.layout.layout')
 @section('title')
     Dashboard
 @endsection

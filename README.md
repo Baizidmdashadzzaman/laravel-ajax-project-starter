@@ -1,4 +1,4 @@
-# Project Starter Laravel 8 and Ajax with user permission  
+# Project Starter Laravel 8 and Ajax with user permission and Multiguard auth
 
 This is a simple project starter build using laravel 8 ,ajax and as an template used Admin lte 3.
 
@@ -37,12 +37,12 @@ For admin login visit
 url/admin-login
 ```
 
-For customer login visit
+For user login visit
 ```shell
-url/customer-login
+url/users-login
 ```
 
-For user unader customer login visit
+For customer unader user login visit
 ```shell
 url/customerusers-login
 ```

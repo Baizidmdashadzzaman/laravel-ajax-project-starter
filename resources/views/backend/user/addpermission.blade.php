@@ -1,7 +1,7 @@
 @extends('backend.layout.layout')
 
 @section('title')
-     User Permission
+     Admin Permission
 @endsection
 
 @section('css')
@@ -18,13 +18,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">User</h1>
+            <h1 class="m-0">Admin</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item ">User</li>
-              <li class="breadcrumb-item active">User permission</li>
+              <li class="breadcrumb-item ">Admin</li>
+              <li class="breadcrumb-item active">Admin permission</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -44,7 +44,7 @@
                 
                 <div class="card-header">
                   
-                  <h3 class="card-title">User permission : {{$allData2->name}}</h3>
+                  <h3 class="card-title">Admin permission : {{$allData2->name}}</h3>
                   
                   
                 </div>
@@ -67,7 +67,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>User management</td>
+                                <td>Admin management</td>
                                 <td>
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="admin-read" checked="" disabled="">
@@ -116,7 +116,7 @@
                             </tr>
 
                             <tr>
-                              <td>Customer Management</td>
+                              <td>User Management</td>
                               <td>
                                   <div class="custom-control custom-checkbox">
                                       <input type="checkbox" class="custom-control-input" id="admin-read" checked="" disabled="">

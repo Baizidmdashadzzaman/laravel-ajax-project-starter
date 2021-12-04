@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\customer;
+namespace App\Http\Controllers\users;
 use App\Http\Controllers\Controller;
 use App\Models\CustomerUser;
 use Illuminate\Http\Request;
@@ -15,7 +15,7 @@ class CustomersUserController extends Controller
     {
 		//$this->checkpermission(2);
         $allData=CustomerUser::where('customer_id',Auth::user()->id)->latest()->get();
-		return view('customer.customer.index',compact('allData'));
+		return view('users.customer.index',compact('allData'));
     }
 
     public function create()
@@ -31,7 +31,7 @@ class CustomersUserController extends Controller
         ->where('customer_users_name', 'LIKE', "%{$query}%")
         ->latest()->get();			
 		
-		return view('customer.customer.search',compact('allData'));	
+		return view('users.customer.search',compact('allData'));	
 	}	
 
     public function store(Request $request)
